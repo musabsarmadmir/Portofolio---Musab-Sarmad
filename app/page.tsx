@@ -48,31 +48,31 @@ export default function Portfolio() {
 
   const projects = [
     {
-      name: "QuantFlow",
-      description: "Algorithmic trading platform with statistical arbitrage strategies",
-      tech: ["Python", "FastAPI", "PostgreSQL"],
-      github: "#",
+      name: "ThinkThrive",
+      description: "AI-powered flashcard learning system to help you learn code without procrastinating",
+      tech: ["React", "Next.js", "Groq API", "Llama"],
+      github: "https://github.com/musabsarmadmir/ThinkThrive",
       demo: "#",
     },
     {
-      name: "Suno",
-      description: "Voice-based therapy companion for Urdu speakers using AI",
-      tech: ["React", "Node.js", "OpenAI"],
-      github: "#",
+      name: "NASA Hackathon Chatbot",
+      description: "Interactive chatbot built for NASA Space Apps Challenge competition",
+      tech: ["Next.js", "JavaScript", "CSS"],
+      github: "https://github.com/musabsarmadmir/NASA_Hackathon_Chatbot",
+      demo: "https://chatbot-3.vercel.app/",
+    },
+    {
+      name: "RMP-AI",
+      description: "AI-powered Rate My Professor system for intelligent course recommendations",
+      tech: ["JavaScript", "Jupyter Notebook", "AI/ML"],
+      github: "https://github.com/musabsarmadmir/RMP-AI",
       demo: "#",
     },
     {
-      name: "RAGRAIFY",
-      description: "RAG-based study assistant SaaS for enhanced learning",
-      tech: ["Next.js", "LangChain", "Pinecone"],
-      github: "#",
-      demo: "#",
-    },
-    {
-      name: "Resume Analyzer",
-      description: "NLP-powered resume scoring application built with PyQt",
-      tech: ["Python", "PyQt", "spaCy"],
-      github: "#",
+      name: "NLP Resume Analyzer",
+      description: "NER and NLP-based Python resume analyzer with intelligent scoring system",
+      tech: ["Python", "NLP", "NLTK", "Tkinter"],
+      github: "https://github.com/musabsarmadmir/NLP-Resume-Analyzer",
       demo: "#",
     },
     {
@@ -203,12 +203,26 @@ export default function Portfolio() {
                         size="sm"
                         variant="outline"
                         className="pixel-button-sm border-green-500/50 text-green-400 hover:bg-green-500/10 bg-transparent"
-                        onClick={playSound}
+                        onClick={() => {
+                          playSound()
+                          if (project.github !== "#") {
+                            window.open(project.github, '_blank')
+                          }
+                        }}
                       >
                         <Github className="h-3 w-3 mr-1" />
                         Code
                       </Button>
-                      <Button size="sm" className="pixel-button-sm bg-green-500 hover:bg-green-600" onClick={playSound}>
+                      <Button 
+                        size="sm" 
+                        className="pixel-button-sm bg-green-500 hover:bg-green-600" 
+                        onClick={() => {
+                          playSound()
+                          if (project.demo !== "#") {
+                            window.open(project.demo, '_blank')
+                          }
+                        }}
+                      >
                         <ExternalLink className="h-3 w-3 mr-1" />
                         Demo
                       </Button>
@@ -328,7 +342,10 @@ export default function Portfolio() {
                     variant="outline"
                     size="lg"
                     className="pixel-button border-green-500/50 text-green-400 hover:bg-green-500/10 bg-transparent"
-                    onClick={playSound}
+                    onClick={() => {
+                      playSound()
+                      window.open('https://github.com/musabsarmadmir', '_blank')
+                    }}
                   >
                     <Github className="h-5 w-5 mr-2" />
                     GitHub
@@ -337,7 +354,10 @@ export default function Portfolio() {
                     variant="outline"
                     size="lg"
                     className="pixel-button border-green-500/50 text-green-400 hover:bg-green-500/10 bg-transparent"
-                    onClick={playSound}
+                    onClick={() => {
+                      playSound()
+                      window.open('https://www.linkedin.com/in/musabsarmad/', '_blank')
+                    }}
                   >
                     <Linkedin className="h-5 w-5 mr-2" />
                     LinkedIn
@@ -346,7 +366,10 @@ export default function Portfolio() {
                     variant="outline"
                     size="lg"
                     className="pixel-button border-green-500/50 text-green-400 hover:bg-green-500/10 bg-transparent"
-                    onClick={playSound}
+                    onClick={() => {
+                      playSound()
+                      window.open('mailto:musabsarmadmir@gmail.com', '_self')
+                    }}
                   >
                     <Mail className="h-5 w-5 mr-2" />
                     Email
