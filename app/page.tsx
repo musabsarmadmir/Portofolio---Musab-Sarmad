@@ -46,13 +46,24 @@ export default function Portfolio() {
     }
   }
 
+  const downloadResume = () => {
+    playSound()
+    // Create a link to download the resume file
+    const link = document.createElement('a')
+    link.href = '/musab-sarmad-mir-resume.pdf'
+    link.download = 'Musab_Sarmad_Mir_Resume.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
+
   const projects = [
     {
       name: "ThinkThrive",
       description: "AI-powered flashcard learning system to help you learn code without procrastinating",
       tech: ["React", "Next.js", "Groq API", "Llama"],
       github: "https://github.com/musabsarmadmir/ThinkThrive",
-      demo: "#",
+      demo: "https://github.com/musabsarmadmir/ThinkThrive",
     },
     {
       name: "NASA Hackathon Chatbot",
@@ -66,21 +77,21 @@ export default function Portfolio() {
       description: "AI-powered Rate My Professor system for intelligent course recommendations",
       tech: ["JavaScript", "Jupyter Notebook", "AI/ML"],
       github: "https://github.com/musabsarmadmir/RMP-AI",
-      demo: "#",
+      demo: "https://github.com/musabsarmadmir/RMP-AI",
     },
     {
       name: "NLP Resume Analyzer",
       description: "NER and NLP-based Python resume analyzer with intelligent scoring system",
       tech: ["Python", "NLP", "NLTK", "Tkinter"],
       github: "https://github.com/musabsarmadmir/NLP-Resume-Analyzer",
-      demo: "#",
+      demo: "https://github.com/musabsarmadmir/NLP-Resume-Analyzer#demo",
     },
     {
-      name: "Quote Generator",
-      description: "Modern quote generator built with Next.js and ShadCN",
-      tech: ["Next.js", "ShadCN", "TailwindCSS"],
-      github: "#",
-      demo: "#",
+      name: "Blog Summarizer with Urdu Translation",
+      description: "Full-stack web application that extracts blog content, generates AI summaries, and provides Urdu translations with dual database architecture",
+      tech: ["Next.js 14", "TypeScript", "Supabase", "MongoDB", "Web Scraping"],
+      github: "https://github.com/musabsarmadmir/Nexium_Musab_Assign2",
+      demo: "https://nexium-musab-assign2.vercel.app/",
     },
   ]
 
@@ -137,11 +148,9 @@ export default function Portfolio() {
               <Button
                 variant="outline"
                 className="pixel-button border-green-500 text-green-400 hover:bg-green-500/10 bg-transparent"
-                onClick={() => {
-                  playSound()
-                  document.getElementById("resume")?.scrollIntoView({ behavior: "smooth" })
-                }}
+                onClick={downloadResume}
               >
+                <Download className="h-4 w-4 mr-2" />
                 Download Resume
               </Button>
             </div>
@@ -205,9 +214,7 @@ export default function Portfolio() {
                         className="pixel-button-sm border-green-500/50 text-green-400 hover:bg-green-500/10 bg-transparent"
                         onClick={() => {
                           playSound()
-                          if (project.github !== "#") {
-                            window.open(project.github, '_blank')
-                          }
+                          window.open(project.github, '_blank')
                         }}
                       >
                         <Github className="h-3 w-3 mr-1" />
@@ -218,9 +225,7 @@ export default function Portfolio() {
                         className="pixel-button-sm bg-green-500 hover:bg-green-600" 
                         onClick={() => {
                           playSound()
-                          if (project.demo !== "#") {
-                            window.open(project.demo, '_blank')
-                          }
+                          window.open(project.demo, '_blank')
                         }}
                       >
                         <ExternalLink className="h-3 w-3 mr-1" />
@@ -246,7 +251,7 @@ export default function Portfolio() {
                     <span>+92 3400433023</span>
                     <span>musabsarmadmir@gmail.com</span>
                   </div>
-                  <Button className="pixel-button bg-green-500 hover:bg-green-600" onClick={playSound}>
+                  <Button className="pixel-button bg-green-500 hover:bg-green-600" onClick={downloadResume}>
                     <Download className="h-4 w-4 mr-2" />
                     Download PDF
                   </Button>
